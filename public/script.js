@@ -11,6 +11,7 @@ var painting = false;
 sigField.addEventListener("mousedown", startSigning);
 sigField.addEventListener("mouseup", endSigning);
 sigField.addEventListener("mousemove", drawing);
+sigField.addEventListener("mouseleave", stopSign);
 
 function startSigning(e) {
     x = e.clientX - field.left;
@@ -22,15 +23,15 @@ function endSigning() {
     painting = false;
 }
 
-function draw(ctx, x1, y1, x2, y2) {
+function draw(ctx, xS, yS, xE, yE) {
     if (painting === false) return;
     ctx.lineWidth = 1;
     ctx.lineCap = "round";
     ctx.strokeStyle = "black";
     ctx.beginPath();
     ctx.lineWidth = 1;
-    ctx.moveTo(x1, y1);
-    ctx.lineTo(x2, y2);
+    ctx.moveTo(xS, yS);
+    ctx.lineTo(xE, yE);
     ctx.stroke();
     ctx.closePath();
 }
@@ -41,4 +42,9 @@ function drawing(e) {
         x = e.clientX - field.left;
         y = e.clientY - field.top;
     }
+}
+
+function stopSign() {
+    ctx.closePath();
+    painting = false;
 }
