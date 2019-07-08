@@ -1,5 +1,6 @@
 var sigField = document.getElementById("SignatureCanvas");
 const ctx = sigField.getContext("2d");
+const input = document.getElementsByName("input")[0];
 
 const field = sigField.getBoundingClientRect();
 
@@ -20,6 +21,8 @@ function startSigning(e) {
 }
 
 function endSigning() {
+    input.value = sigField.toDataURL();
+    console.log(input);
     painting = false;
 }
 
@@ -29,7 +32,6 @@ function draw(ctx, xS, yS, xE, yE) {
     ctx.lineCap = "round";
     ctx.strokeStyle = "black";
     ctx.beginPath();
-    ctx.lineWidth = 1;
     ctx.moveTo(xS, yS);
     ctx.lineTo(xE, yE);
     ctx.stroke();
