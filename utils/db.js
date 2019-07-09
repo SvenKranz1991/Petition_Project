@@ -20,7 +20,7 @@ exports.addName = function addName(first_name, last_name, signature_base_64) {
         // should the values in Brackets be the same as in Signatures.sql Table?
 
         `INSERT INTO signatures (first_name, last_name, signature_base_64)
-        VALUES ($1, $2, $3)`,
+        VALUES ($1, $2, $3) RETURNING id`,
         [first_name, last_name, signature_base_64]
     );
 };
@@ -33,6 +33,28 @@ exports.getNumber = function getNumber() {
 
 // SELECT to get the first and last names of everyone who has signed
 
-exports.getSignatures = function getSignatures() {
-    return db.query("SELECT * FROM signatures");
+// exports.getSignatures = function getSignatures() {
+//     return db.query("SELECT * FROM signatures");
+// };
+
+exports.getSignature = function getSignature(id) {
+    return db.query(
+        "SELECT signature_base_64 FROM signatures WHERE id = " + id
+    );
+};
+
+exports.addRegistration = function addRegistration(
+    first_name,
+    last_name,
+    email,
+    password
+) {
+    return db.query(
+        `INSERT INTO users (first_name, last_name, email, password)`,
+        [first_name, last_name, email, password]
+    );
+};
+
+exports.checkLogin = function checkLogin(email, password) {
+    return db.query(`SELECT email, password FROM users`);
 };
