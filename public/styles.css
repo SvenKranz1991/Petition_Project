@@ -1,0 +1,6 @@
+.warning {
+    visibility: hidden;
+}
+.on {
+    visibility: visible;
+}

@@ -5,6 +5,10 @@
 
 <img src="/" alt="Picture" class="MainPicture">
 
+<div class="warning {{#if warning}}on {{/if}}">
+    <p>There's something missing</p>
+</div>
+
     <form method="POST">
     <div id="SignatureFieldValue">
             <input title= "First Name" type="text" name="first_name" placeholder="First Name">
@@ -14,6 +18,7 @@
             <br>
             <input title="ValueCanv" type="hidden" name="input">
             <!-- Option Two - type = 'text' css - make hidden -->
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
         <canvas id="SignatureCanvas" width="600" height="100" style="border:1px solid #000000;"></canvas>
 
 

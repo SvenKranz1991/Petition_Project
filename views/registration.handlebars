@@ -3,13 +3,16 @@
 <h1>Registration Process</h1>
 
 <img src="/" alt="Picture" class="MainPicture">
-
+<div class="warning {{#if warning}}on {{/if}}">
+    <p>There's something missing</p>
+</div>
     <form method="POST">
     <div id="SignatureFieldValue">
             <input title= "First Name" type="text" name="first_name" placeholder="First Name">
             <input title= "Last Name" type="text" name="last_name" placeholder="Last Name">
             <input title= "Email" type="text" name="email" placeholder="Email">
             <input title= "Password" type="text" name="password" placeholder="Password">
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
 
             <br>
             <br>

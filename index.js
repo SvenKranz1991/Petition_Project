@@ -2,26 +2,26 @@
 
 const express = require("express");
 const app = express();
+const helmet = require("helmet");
+
+app.use(helmet());
 
 const hb = require("express-handlebars");
 app.engine("handlebars", hb());
 app.set("view engine", "handlebars");
 
 const bodyParser = require("body-parser");
-
 const cookieParser = require("cookie-parser");
-
+const csurf = require("csurf");
 const db = require("./utils/db");
-
-app.use(express.static("./public"));
-app.use(express.static("./material"));
+const enc = require("./utils/bc");
 
 // Cookie Session
 var cookieSession = require("cookie-session");
 
 app.use(
     cookieSession({
-        secret: `I'm always angry.`,
+        secret: `I cook rice.`,
         maxAge: 1000 * 60 * 60 * 24 * 14
     })
 );
@@ -31,6 +31,43 @@ app.use(
         extended: false
     })
 );
+
+app.use(express.static("./public"));
+app.use(express.static("./material"));
+app.use("/favicon.ico", (req, res) => res.sendStatus(404));
+
+// Test BCrypt
+
+enc.hashPassword("ekrjdkfasfa").then(decrypt => {
+    console.log("Test Password:", decrypt);
+});
+
+// Cookie Parser
+
+app.use(cookieParser());
+
+// Deny IFrame attack
+
+app.use(csurf());
+
+app.use(function(req, res, next) {
+    res.set("x-frame-options", "deny");
+    res.locals.csrfToken = req.csrfToken();
+    next();
+});
+
+// app.use(function(req, res, next) {
+//     if (req.cookies.registrated) {
+//         res.redirect("/petition/signed");
+//         return next();
+//     }
+//     if (!req.cookies.registrated) {
+//         res.redirect("/registration");
+//         return next();
+//     }
+//     res.redirect("/registration");
+//     return next();
+// });
 
 // Redirect slash Route to /petition
 
@@ -54,13 +91,53 @@ app.get("/registration", (req, res) => {
     });
 });
 
+// P3 -- > Hash Password, Encrypt Password
+
 app.post("/registration", (req, res) => {
-    db.addRegistration(
-        req.body.first_name,
-        req.body.last_name,
-        req.body.email,
-        req.body.password
-    ).then(res.redirect("/petition"));
+    if (
+        req.body.first_Name == "" ||
+        req.body.last_name == "" ||
+        req.body.email == "" ||
+        req.body.password == ""
+    ) {
+        console.log("true");
+        res.render("registration", {
+            layout: "main",
+            Title: "Registration Page",
+            warning: true
+        });
+    } else {
+        enc.hashPassword("ekrjdkfasfa").then(decrypt => {
+            console.log("New Password:", decrypt);
+            db.addRegistration(
+                req.body.first_name,
+                req.body.last_name,
+                req.body.email,
+                decrypt
+            )
+                .then(res.redirect("/registration/location"))
+                .catch(err => {
+                    console.log("err in addName: ", err);
+                });
+        });
+    }
+});
+
+// User Info Location
+
+app.get("/registration/location", (req, res) => {
+    res.render("location", {
+        layout: "main",
+        Title: "Registration / Location"
+    });
+});
+
+app.post("/registration/location", (req, res) => {
+    db.addUserInfo(req.body.age, req.body.city, req.body.homepage)
+        .then(res.redirect("/petition"))
+        .catch(err => {
+            console.log("err in addName: ", err);
+        });
 });
 
 // Login
@@ -74,22 +151,28 @@ app.get("/login", (req, res) => {
 
 // Making Post Route from FORM on page for User
 
-// P3 -- > Hash Password
 app.post("/petition", (req, res) => {
-    // console.log(req.body.Input); --> doesn't work, only in Front
-    db.addName(req.body.first_name, req.body.last_name, req.body.input)
-        // req.body.signature  --> add in parameters for getting value
-
-        .then(results => {
-            req.session.userId = results.rows[0].id;
-            // console.log("yay it worked!");
-            res.redirect("/petition/signed");
-            // console.log(req.body);
-            console.log(req.session);
-        })
-        .catch(err => {
-            console.log("err in addName: ", err);
+    if (
+        req.body.first_name == "" ||
+        req.body.last_name == "" ||
+        req.body.input == ""
+    ) {
+        res.render("petition", {
+            warning: true
         });
+    } else {
+        db.addName(req.body.first_name, req.body.last_name, req.body.input)
+            .then(results => {
+                req.session.userId = results.rows[0].id;
+                // console.log("yay it worked!");
+                res.redirect("/petition/signed");
+                // console.log(req.body);
+                console.log(req.session);
+            })
+            .catch(err => {
+                console.log("err in addName: ", err);
+            });
+    }
 });
 
 // Redirecting to signed Page
@@ -106,29 +189,25 @@ app.get("/petition/signed", (req, res) => {
             console.log("signatureresults:", results);
             res.render("signed", {
                 layout: "main",
-                NamesEntries: numberID.count,
+                NamesEntries: results.count,
                 image: results.rows[0].signature_base_64,
                 Title: "Last Page",
-                redirect: "/petition/signers"
+                redirect: "/petition/signers",
+                name: `results.rows[0].first_name results.rows[0].first_name `
             });
-
             console.log("results rows: ", results.rows);
         });
     });
+    // res.cookie("registrated", 1);
 
     // call out Cookie Signature Id
-
-    // once you have the big signature url in this route,
-    // you can render it on screen by putting it in an img tag
 });
 
-// Showing List of User, who signed
-
+// Showing List of Users, who signed
 // When you want to end the session (i.e, log out the user), you can set req.session to null.
 
 app.get("/petition/signers", (req, res) => {
     // do the same app.get signatures
-    // canvas count
     db.getSignatures().then(results => {
         res.render("signers", {
             layout: "main",
@@ -139,3 +218,12 @@ app.get("/petition/signers", (req, res) => {
 });
 
 app.listen(8080, () => console.log("8080 Listening!"));
+
+///////////////////
+//  You should also change the signatures table so that it has a column for the user id. You need to be able ///  to map signatures to users and users to signatures.
+///////////////////
+///////////////////
+// Finished
+//////////////////
+// First name, last name, email address, and password should all be required fields. Email addresses must be /// unique. This should be enforced by a constraint on the column.
+//////////////////
