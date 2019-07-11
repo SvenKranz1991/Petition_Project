@@ -51,3 +51,20 @@ CREATE TABLE user_profiles (
 -- JOINS
 
 -- SELECT users.first_name || ' ' || users.last_name AS User, user_profiles.city AS Location FROM users JOIN user_profiles on users.id = user_profiles.userid;
+
+
+CREATE TABLE users (
+    id  SERIAL primary key,
+    first_name  VARCHAR(255) NOT NULL,
+    last_name   VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE user_profiles (
+    id SERIAL primary key,
+    age Integer,
+    city VARCHAR(255),
+    homepage VARCHAR(255)
+);

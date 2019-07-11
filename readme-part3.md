@@ -8,7 +8,7 @@ Two different ways of attacking a database and decrypting passwords
 
 Generating a list of hashes and compare it to list of hash passwords in order to decrypt
 
-in a hashe
+in a hash
 
 \$2a --> indicates use version 2 of bcrypt
 

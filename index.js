@@ -16,6 +16,12 @@ const csurf = require("csurf");
 const db = require("./utils/db");
 const enc = require("./utils/bc");
 
+// const {
+//     requireLoggedOut,
+//     requireSigned,
+//     requireNoSignature
+// } = require("./middleware");
+
 // Cookie Session
 var cookieSession = require("cookie-session");
 
@@ -25,6 +31,41 @@ app.use(
         maxAge: 1000 * 60 * 60 * 24 * 14
     })
 );
+// app.use();
+
+/////// Registration
+
+// If Person not registered, have cookie --> redirect to petition
+
+// function requireLoggedOut(req, res, next) {
+//     if (req.session.userId) {
+//         return res.redirect("/petition");
+//     }
+//     // res.sendStatus(200);
+//     next();
+// }
+
+////////// Apply it to GET and Post
+
+// app.get("/register", requireLoggedOut, (req, res) => {
+//     res.sendStatus(200);
+// });
+
+app.use((req, res, next) => {
+    if (!req.session.userId && req.u != "/register" && req.url != "/login") {
+        res.redirect("/register");
+    } else {
+        next();
+    }
+});
+
+//////
+app.get("/register", (req, res) => {
+    if (req.session.userId) {
+        return res.redirect("/petition");
+    }
+    res.sendStatis(200);
+});
 
 app.use(
     require("body-parser").urlencoded({
@@ -107,7 +148,7 @@ app.post("/registration", (req, res) => {
             warning: true
         });
     } else {
-        enc.hashPassword("ekrjdkfasfa").then(decrypt => {
+        enc.hashPassword(req.body.password).then(decrypt => {
             console.log("New Password:", decrypt);
             db.addRegistration(
                 req.body.first_name,
@@ -175,12 +216,15 @@ app.post("/petition", (req, res) => {
     }
 });
 
+// send information to
+
 // Redirecting to signed Page
 
 // P3 -- > Build login form if user already signed
 // use checkPassword for Login
 
 app.get("/petition/signed", (req, res) => {
+    console.log(req.session.userId);
     let numberID;
     db.getNumber().then(results => {
         numberID = results.rows;
@@ -193,13 +237,12 @@ app.get("/petition/signed", (req, res) => {
                 image: results.rows[0].signature_base_64,
                 Title: "Last Page",
                 redirect: "/petition/signers",
-                name: `results.rows[0].first_name results.rows[0].first_name `
+                name: `results.rows[0].first_name results.rows[0].first_name`
             });
             console.log("results rows: ", results.rows);
         });
     });
     // res.cookie("registrated", 1);
-
     // call out Cookie Signature Id
 });
 
@@ -217,13 +260,34 @@ app.get("/petition/signers", (req, res) => {
     });
 });
 
-app.listen(8080, () => console.log("8080 Listening!"));
+app.listen(process.env.PORT || 8080, () => console.log("8080 Listening!"));
 
-///////////////////
+////////////////////
 //  You should also change the signatures table so that it has a column for the user id. You need to be able ///  to map signatures to users and users to signatures.
-///////////////////
-///////////////////
+////////////////////
+////////////////////
 // Finished
-//////////////////
+////////////////////
 // First name, last name, email address, and password should all be required fields. Email addresses must be /// unique. This should be enforced by a constraint on the column.
-//////////////////
+////////////////////
+//
+// For Part 4 Heroku
+////////////////////
+// change
+//
+//  app.listen(process.env.PORT || 8080, () => {
+//  console.log("petition listening");
+//  });
+//
+//  if "if" block runs, that means our website should talk to heroku's postgres database
+//
+//
+// if(process.env.DATABASE_URL) {
+// db = spicedPg(process.env.DATABASE_URL)
+// }   else {
+// db = spicedPg(`postgres:postgres:postgres@localhost:5432/signatures)
+// }
+
+// this means my app is on Heroku
+// and my server should look for a cookieSessionSecret on Heroku
+// this in general is how we handle secret credentials on Heroku
