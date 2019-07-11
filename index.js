@@ -51,21 +51,21 @@ app.use(
 //     res.sendStatus(200);
 // });
 
-app.use((req, res, next) => {
-    if (!req.session.userId && req.u != "/register" && req.url != "/login") {
-        res.redirect("/register");
-    } else {
-        next();
-    }
-});
+// app.use((req, res, next) => {
+//     if (!req.session.userId && req.u != "/register" && req.url != "/login") {
+//         res.redirect("/register");
+//     } else {
+//         next();
+//     }
+// });
 
 //////
-app.get("/register", (req, res) => {
-    if (req.session.userId) {
-        return res.redirect("/petition");
-    }
-    res.sendStatis(200);
-});
+// app.get("/register", (req, res) => {
+//     if (req.session.userId) {
+//         return res.redirect("/petition");
+//     }
+//     res.sendStatis(200);
+// });
 
 app.use(
     require("body-parser").urlencoded({
