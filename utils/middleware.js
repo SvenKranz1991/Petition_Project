@@ -43,3 +43,10 @@ exports.notWithoutRegistration = function notWithoutRegistration(
     }
     next();
 };
+
+exports.websiteChecking = function websiteChecking(homepage) {
+    if (!homepage.startsWith("http://" || "https://")) {
+        homepage = "http://".concat(homepage);
+    }
+    return homepage;
+};

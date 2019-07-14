@@ -42,7 +42,8 @@ app.use(csurf());
 const {
     notWithoutSignature,
     hasSigned,
-    notWithoutRegistration
+    notWithoutRegistration,
+    websiteChecking
 } = require("./utils/middleware");
 
 app.use(function(req, res, next) {
@@ -128,12 +129,9 @@ app.get("/registration/location", notWithoutRegistration, (req, res) => {
 });
 
 app.post("/registration/location", (req, res) => {
-    db.addUserInfo(
-        req.body.age,
-        req.body.city,
-        req.body.homepage,
-        req.session.userId
-    )
+    let newHomepage = websiteChecking(req.body.homepage);
+    console.log(newHomepage);
+    db.addUserInfo(req.body.age, req.body.city, newHomepage, req.session.userId)
         .then(() => {
             res.redirect("/petition");
         })
@@ -332,6 +330,8 @@ app.get("/editProfile", notWithoutRegistration, function(req, res) {
 /////
 
 app.post("/editProfile", function(req, res) {
+    let newHomepage = websiteChecking(req.body.homepage);
+    console.log(newHomepage);
     if (req.body.password == "") {
         db.updateUsersNoPassword(
             req.session.userId,
@@ -343,7 +343,7 @@ app.post("/editProfile", function(req, res) {
                 db.updateUserProfiles(
                     req.body.age,
                     req.body.city,
-                    req.body.homepage,
+                    newHomepage,
                     req.session.userId
                 );
             })
