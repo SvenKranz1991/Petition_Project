@@ -84,7 +84,8 @@ app.post("/registration", (req, res) => {
             layout: "main",
             Title: "Registration Page",
             warning: true,
-            name: req.session.nameId
+            name: req.session.nameId,
+            login: "/login"
         });
     } else {
         enc.hashPassword(req.body.password).then(decrypt => {
@@ -253,7 +254,8 @@ app.get("/petition/signers/:city", notWithoutSignature, (req, res) => {
 app.get("/login", (req, res) => {
     res.render("login", {
         layout: "main",
-        Title: "Login Page"
+        Title: "Login Page",
+        registration: "/registration"
     });
 });
 
