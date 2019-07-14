@@ -1,14 +1,17 @@
 <title>{{Title}}</title>
 
 
+<a href="{{logout}}"><h1>Logout</h1></a>
+        <a href="{{delete}}"><h1>Delete Signature</h1></a>
+<a href="{{editProfile}}"><h1>EditProfile</h1></a>
 
 
-
-<h1>This Petition was signed by {{count}}</h1>
+<h1>This Petition was signed by {{NumberOfSigners}}</h1>
 <h1>List of people who signed</h1>
 {{#NamesEntries}}
 
 <p>
-{{first_name}} {{last_name}}
+{{#if homepage}}<a href="{{homepage}}" target="_blank">{{first}} {{last}}</a>{{/if}}{{#if age}}, {{age}},{{/if}} {{#if city}}<a href="/petition/signers/{{city}}">{{city}}</a>{{/if}}
 </p>
+
 {{/NamesEntries}}

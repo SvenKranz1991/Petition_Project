@@ -11,13 +11,7 @@
 
     <form method="POST">
     <div id="SignatureFieldValue">
-            <input title= "First Name" type="text" name="first_name" placeholder="First Name">
-            <input title= "Last Name" type="text" name="last_name" placeholder="Last Name">
-
-            <br>
-            <br>
             <input title="ValueCanv" type="hidden" name="input">
-            <!-- Option Two - type = 'text' css - make hidden -->
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
         <canvas id="SignatureCanvas" width="600" height="100" style="border:1px solid #000000;"></canvas>
 
@@ -25,6 +19,9 @@
         <h5>Your Signature</h5>
 
         <button type="submit" name="submit_button">Submit</button>
+        <a href="{{editProfile}}"><h1>EditProfile</h1></a>
+        <a href="{{logout}}"><h1>Logout</h1></a>
+        <a href="{{delete}}"><h1>Delete Signature</h1></a>
 
     </div>
     </form>

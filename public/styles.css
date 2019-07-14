@@ -4,3 +4,7 @@
 .on {
     visibility: visible;
 }
+
+.update {
+    visibility: hidden;
+}

@@ -1,0 +1,35 @@
+
+<div class="warning {{#if warning}}on {{/if}}">
+    <p>There's something missing</p>
+</div>
+<div class="update {{#if update}}on {{/if}}">
+    <p>Successfully updated!</p>
+</div>
+
+
+<form method="POST">
+{{#UserProfile}}
+<h1>First Name</h1>
+<input type="text" name="first_name" placeholder="first name" value={{first}}></input>
+<h1>Last Name</h1>
+<input type="text" name="last_name" placeholder="last name" value={{last}}></input>
+<h1>Email</h1>
+<input type="text" name="email" placeholder="email address" value={{email}}></input>
+<h1>Age</h1>
+<input type="number" name="age" placeholder="age" value={{age}}></input>
+<h1>City</h1>
+<input type="text" name="city" placeholder="city" value={{city}}></input>
+<h1>Homepage</h1>
+<input type="text" name="homepage" placeholder="homepage" value={{homepage}}></input>
+<h1>Password</h1>
+<input type="password" name="password" placeholder="password"></input>
+
+{{/UserProfile}}
+
+<br><br><br>
+<button id="edit-btn" type="submit">Save Edit</button>
+<input type="hidden" name="_csrf" value="{{csrfToken}}">
+</form>
+
+
+<a href="{{delete}}"><h1>Delete Signature</h1></a>
