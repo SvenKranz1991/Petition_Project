@@ -1,30 +1,35 @@
 
-<div class="warning {{#if warning}}on {{/if}}">
-    <p>There's something missing</p>
-</div>
-<div class="update {{#if update}}on {{/if}}">
-    <p>Successfully updated!</p>
-</div>
 
+<div class="padding">
+
+
+<a href="{{backToPetition}}" class="BackToPetition"><h3>Back to Petition</h3></a>
+
+<h2>Edit your profile</h2>
 
 <form method="POST">
 {{#UserProfile}}
-<h1>First Name</h1>
+<h3>First Name</h3>
 <input type="text" name="first_name" placeholder="first name" value={{first}}></input>
-<h1>Last Name</h1>
+<h3>Last Name</h3>
 <input type="text" name="last_name" placeholder="last name" value={{last}}></input>
-<h1>Email</h1>
+<h3>Email</h3>
 <input type="text" name="email" placeholder="email address" value={{email}}></input>
-<h1>Age</h1>
+<h3>Age</h3>
 <input type="number" name="age" placeholder="age" value={{age}}></input>
-<h1>City</h1>
+<h3>City</h3>
 <input type="text" name="city" placeholder="city" value={{city}}></input>
-<h1>Homepage</h1>
+<h3>Homepage</h3>
 <input type="text" name="homepage" placeholder="homepage" value={{homepage}}></input>
-<h1>Password</h1>
+<h3>Password</h3>
 <input type="password" name="password" placeholder="password"></input>
 
 {{/UserProfile}}
+<!-- <div class="warning {{#if warning}}on {{/if}}">
+    <p>There's something missing</p>
+</div> -->
+
+<a href="{{delete}}" class="DeleteSignatureInEdit"><h3>Delete Signature</h3></a>
 
 <br><br><br>
 <button id="edit-btn" type="submit">Save Edit</button>
@@ -32,4 +37,5 @@
 </form>
 
 
-<a href="{{delete}}"><h1>Delete Signature</h1></a>
+
+</div>

@@ -1,3 +1,41 @@
+* {
+    box-sizing: border-box;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+header: {
+    padding-top: 40px;
+}
+
+button {
+    background-color: white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
 .warning {
     visibility: hidden;
 }
@@ -7,4 +45,36 @@
 
 .update {
     visibility: hidden;
+}
+
+.paragraphpetition {
+    width: 50%;
+}
+
+.signatureshow {
+    background-color: white;
+}
+
+.padding {
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.DeleteSignatureInEdit {
+    margin-top: 20px;
+    border: none;
+}
+
+.BackToPetition {
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.listsigned a {
+    border: none;
+    background-color: white;
+}
+
+.navi a {
+    margin-top: 10px;
 }

@@ -183,7 +183,6 @@ app.get("/petition/signed", notWithoutSignature, (req, res) => {
                     layout: "main",
                     NamesEntries: count.rows,
                     image: theSignature,
-                    Title: "Last Page",
                     redirect: "/petition/signers",
                     logout: "/logout",
                     editProfile: "/editProfile",
@@ -321,15 +320,14 @@ app.get("/editProfile", notWithoutRegistration, function(req, res) {
                 delete: "/deleteSignature",
                 UserProfile: account.rows,
                 deleteAccount: "/deleteAccount",
-                name: req.session.nameId
+                name: req.session.nameId,
+                backToPetition: "/petition"
             });
         })
         .catch(err => {
             console.log("Error in getUser: ", err);
         });
 });
-
-/////
 
 app.post("/editProfile", function(req, res) {
     let newHomepage = websiteChecking(req.body.homepage);

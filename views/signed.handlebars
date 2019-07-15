@@ -1,15 +1,21 @@
-<h1>Thank you {{name}} for signing our petition to make life easier!</h1>
-<img src="{{image}}">
+
+<div class="padding">
+<h1>Thank you {{name}} for signing our petition!</h1>
+<img src="DMbJOcXWkAEVZRW.jpg_large" alt="Bug">
+<img class= "signatureshow" src="{{image}}">
 
 {{#NamesEntries}}
 
-<h1>This Petition was signed by {{count}} people.</h1>
+<h1>The Petition was signed by {{count}} people.</h1>
 
 {{/NamesEntries}}
 
 
 
-<a href="{{redirect}}"><h1>Show signatures</h1></a>
-        <a href="{{delete}}"><h1>Delete Signature</h1></a>
-<a href="{{editProfile}}"><h1>EditProfile</h1></a>
-<a href="{{logout}}"><h1>Logout</h1></a>
+<div class="navi">
+<a href="{{redirect}}"><h4>Show signatures</h4></a>
+        <a href="{{delete}}"><h4>Delete Signature</h4></a>
+<a href="{{editProfile}}"><h4>EditProfile</h4></a>
+<a href="{{logout}}"><h4>Logout</h4></a>
+</div>
+</div>

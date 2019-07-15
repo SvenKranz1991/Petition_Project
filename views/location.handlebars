@@ -1,17 +1,15 @@
-<title>{{Title}}</title>
 
-<h1>Give me your personal Info - its optional.</h1>
-<h2>I can already stalk you anyway, {{name}}</h2>
-<img src="/" alt="Picture" class="MainPicture">
+<div class="padding">
+<h1>Give me your personal Info, {{name}} - its optional.</h1>
 
     <form method="POST">
     <div id="SignatureFieldValue">
 
-            <h4>Age</h4>
+            <h3>Age</h3>
             <input title= "Age" type="text" name="age" placeholder="Age">
-            <h4>City</h4>
+            <h3>City</h3>
             <input title= "City" type="text" name="city" placeholder="City">
-            <h4>Homepage</h4>
+            <h3>Homepage</h3>
             <input title= "Homepage" type="text" name="homepage" placeholder="Homepage">
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
 
@@ -22,3 +20,4 @@
 
     </div>
     </form>
+</div>

@@ -1,7 +1,10 @@
-<title>{{Title}}</title>
 
-<h1>Login Process</h1>
-<h4>No logins? Come...</h4>
+<div class="padding">
+<h1>Login</h1>
+
+<img src="atf1ietqwaxy.jpg" alt="Bug Picture" height="200" width="400">
+
+<h4>No logins?</h4>
 <a href="{{registration}}">Signup</a>
 
 <div class="warning {{#if warning}}on {{/if}}">
@@ -10,8 +13,6 @@
 
     <form method="POST">
     <div id="SignatureFieldValue">
-            <!-- <input title= "First Name" type="text" name="first_name" placeholder="First Name">
-            <input title= "Last Name" type="text" name="last_name" placeholder="Last Name"> -->
             <input title= "Email" type="text" name="email" placeholder="Email">
             <input title= "Password" type="text" name="password" placeholder="Password">
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
@@ -23,3 +24,5 @@
 
     </div>
     </form>
+
+</div>
