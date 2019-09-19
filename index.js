@@ -1,4 +1,5 @@
 // Requiring Express, Handlebars and the DB
+// checking
 
 const express = require("express");
 const app = express();
