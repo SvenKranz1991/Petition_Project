@@ -1,41 +1,66 @@
-steps to completing part 1:
+# "Let's just walk..." - A Petition against the infamous "E-Roller"
 
-express-handlebars templates
+Spotify-Related was my final project built within 5 days at SPICED Academy - an onsite 12 weeks coding bootcamp in Berlin.
 
----
+The SPA was built with React.js using Hooks and Redux, Node.js and Express.js, PostgreSQL.
 
-FINISHED
+Some General Information.
 
-Server Routes
+#### The Data I was interested in from the "Audio Features" - Endpoint that Spotify provided
 
--   GET /petition
--   renders petition template
--   POST /petition
--   that will run whenever the user signs the petition
--   GET /thanks (or /signed — you can call it whatever)
--   renders "thank you" template
--   GET /signers
--   renders the "signers" template. will need the first and last names of everyone whose signed petition
+-   Item
 
-SQL stuff
+Especially the latter part was of high interested for me, since as a Sound Designer I was curious to see how and what Spotify stores about each track.
 
--   we'll need a database and a table for this project.
--   create a table called "signatures" that has the following columns: id, first, last, signature (the signature's data type should be TEXT), timestamp
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+![The Login Process and Overview of Landing Page]()
 
-express-handlebars templates
+## Getting Started
 
--   "petition" template with a element that the user can actually sign
--   you'll need front-end JS for this. the JS file that contains this code should live in your "public" folder (alongside CSS, imgs, etc.)
--   "thank-you" template that will thank the user for signing the petition, and will include a link to the next page
+Clone Repo and
 
--   should also render the number of people who have signed the petition
--   "signers" template that should render the first and last names of everyone who has signed the petition
+`npm -i -S`
 
--   and you'll need 1 layout
+Need to add own s3 Credentials in order to upload profile Pictures, and setup a Database in PostgreSQL.
 
-DB queries
+Then
 
--   INSERT when user signs the petition (so provides first, last, and signature)
--   SELECT to get number of signers
--   SELECT to get the first and last names of everyone who has signed
+node bundle-server.js
+node index.js
+
+## Built With
+
+### Frontend
+
+-   Handlebars
+-   CSS3
+
+### Backend
+
+-   Node.js
+-   Express.js
+-   PostgreSQL
+-   jQuery
+
+## Features
+
+![Create Playlist - Process](readmegifs/Gif_1_640px_CreatePlaylist.gif)
+
+### Displaying Audio Features from every Track from the created Playlist
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Features to be added
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Authors
+
+-   **Sven Kranz** - [SvenKranz1991](https://github.com/SvenKranz1991) | [LinkedIn](https://www.linkedin.com/in/sven-kranz-a2389318b/) | [Website](www.google.com)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+-   Thank god for PostgreSQL
