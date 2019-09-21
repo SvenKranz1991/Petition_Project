@@ -11,15 +11,15 @@ After signing they see a List of other Users who have signed and can filter the 
 
 ### The Registration Process
 
-![The Registration Process](Petition-640-Registration.gif)
+![The Registration Process](gifreadme/Petition-640-Registration.gif)
 
 ### Signing Process
 
-![Signing Process](Petition-640-Signing.gif)
+![Signing Process](gifreadme/Petition-640-Signing.gif)
 
 ### Login and Deleting Signature Process
 
-![Login and Deleting Signature Process](Petition-640-Login.gif)
+![Login and Deleting Signature Process](gifreadme/Petition-640-Login.gif)
 
 ## Getting Started
 
