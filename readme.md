@@ -1,16 +1,15 @@
 # "Let's just walk..." - A Petition against the infamous "E-Roller"
 
-Spotify-Related was my final project built within 5 days at SPICED Academy - an onsite 12 weeks coding bootcamp in Berlin.
+"Let's just walk..." was my second project built within 5 days at SPICED Academy - an onsite 12 weeks coding bootcamp in Berlin.
 
-The SPA was built with React.js using Hooks and Redux, Node.js and Express.js, PostgreSQL.
+The Website was built with Handlebars.js and jQuery, Node.js and Express.js, PostgreSQL.
 
-Some General Information.
+People can Signup or Login on my Website, create or change their Profiles and Sign the Petition on an Canvas Element.
+After signing they see a List of other Users who have signed and can filter the results by Location.
 
 #### The Data I was interested in from the "Audio Features" - Endpoint that Spotify provided
 
 -   Item
-
-Especially the latter part was of high interested for me, since as a Sound Designer I was curious to see how and what Spotify stores about each track.
 
 ![The Login Process and Overview of Landing Page]()
 
