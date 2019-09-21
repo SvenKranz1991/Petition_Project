@@ -1,39 +1,302 @@
+/* COLOR PALLETE
+
+Light Blue Green: #6ed3cf
+
+Soft Purple: #9068be;
+
+Tasty Eighties Grey: #e1e8f0
+
+Rich Red: #e62739
+
+
+2 {
+
+color: #8D8741;
+
+color: #DAAD86;
+
+color: #659DBD;
+
+color: #BC986A;
+
+color: #FBEEC1;
+}
+
+ */
+
+/* ALL - BODY */
+
 * {
+    width: 100%;
     box-sizing: border-box;
-    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
 }
 
-input {
-    background-color: white;
-    border-radius: 10px;
+body {
+    width: 1290px;
+    text-align: center;
+    background-color: #e1e8f0;
+    color: white;
+    margin: 0;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-header: {
-    padding-top: 40px;
+footer {
+    background-color: #6ed3cf;
+    border-radius: 20px;
 }
 
-button {
-    background-color: white;
+footer p {
+    padding: 20px;
+}
+
+p {
+    font-weight: 100;
+}
+
+.bold {
+    font-weight: 400;
 }
 
 a {
-    text-decoration: none;
-    color: black;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 8px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: underline;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
 }
 
-a:hover {
-    font-weight: bold;
+.tologin h4,
+a {
+    line-height: 1rem;
+    margin: 10px;
+    padding: 0;
+}
+
+/* NavigationSigners */
+
+.navigation {
+    width: 100%;
+    background-color: #00c07f;
+}
+
+.navi {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+
+.navi a {
+    text-decoration: none;
+    border: 1px solid white;
+    font-size: 0.7rem;
+}
+
+.navi a:hover {
+    background-color: white;
+    color: #00c07f;
+    transition-duration: 0.5s;
+}
+
+.showSignatures {
+    width: 170px;
+    text-decoration: none;
+    text-decoration: none;
+    border: 1px solid white;
+    font-size: 0.7rem;
+}
+
+.showSignatures:hover {
+    background-color: white;
+    color: #00c07f;
+    transition-duration: 0.5s;
+}
+
+.signatureshow {
+    background-color: white;
+    width: 600px;
+}
+
+.nameEntries {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nameEntries p {
+    width: 400px;
+    display: inline-block;
+}
+
+.listSigned {
+}
+
+.listSigned p {
+    white-space: nowrap;
+}
+
+.listSigned a {
+    text-decoration: none;
+    width: auto;
+    white-space: nowrap;
+    margin: 0px;
+    text-transform: none;
+}
+
+.listSigned a:hover {
+    text-decoration: underline;
+}
+
+/* NAVIGATION HEADER */
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6ed3cf;
+    border-radius: 20px;
+}
+
+.fab {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.fab:hover {
+    color: #00c07f;
+    transition-duration: 0.5s;
+}
+
+.navigation-icons {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6ed3cf;
+}
+
+.navigation-logoname {
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    width: 20%;
+}
+
+h1 {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+}
+
+/* MAIN PAGES */
+
+/* REGISTRATION */
+
+.registration-landing-section {
+    width: 90%;
+    background-color: #e1e8f0;
+}
+
+.article-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #00c07f;
+}
+
+.a-image {
+    height: 100%;
+    flex: 6;
+    color: #e62739;
+}
+
+.a-image img {
+    width: 90%;
+    padding: 10px 20px;
+    margin-top: 10px 1px;
+}
+
+.article-text {
+    padding: 40px 40px;
+    background-color: #00c07f;
+    color: white;
+    height: 100%;
+    flex: 6;
+    line-height: 1.5rem;
+}
+
+.article-text p {
+    text-align: left;
+    width: 80%;
+}
+
+.calltoaction {
+    color: white;
+    background-color: #e62739;
+    width: 300px;
+    padding: 10px;
+}
+
+/* FORM */
+
+.formaction {
+    background-color: #313d4b;
+    text-align: left;
+    width: 100%;
+    padding: 30px 0px;
+}
+
+.inputfield {
+    width: 200px;
+    padding: 10px 40px;
+    margin: 10px 0px;
+    text-align: center;
+    outline: none;
+}
+
+.submitButton {
+    border-radius: 20px;
+
+    border: none;
+    width: 200px;
+    padding: 10px 20px;
+    margin: 20px 30px 30px 30px;
+    font-size: 1rem;
+    background-color: #e62739;
+    font-weight: 400;
+    color: white;
+}
+
+.getSigned {
+    text-decoration: none;
+    display: inherit;
+}
+
+.warning {
+    color: red;
+    font-weight: 400;
+}
+
+canvas {
+    background-color: white;
+    color: black;
+    width: 600px;
+    height: 300px;
 }
 
 .warning {
@@ -47,34 +310,11 @@ a:hover {
     visibility: hidden;
 }
 
-.paragraphpetition {
-    width: 50%;
+/* TABLET VIEW */
+@media (max-width: 768px) {
 }
 
-.signatureshow {
-    background-color: white;
-}
+/* MOBILE VIEW */
 
-.padding {
-    padding-top: 20px;
-    padding-bottom: 50px;
-}
-
-.DeleteSignatureInEdit {
-    margin-top: 20px;
-    border: none;
-}
-
-.BackToPetition {
-    margin-bottom: 30px;
-    margin-top: 20px;
-}
-
-.listsigned a {
-    border: none;
-    background-color: white;
-}
-
-.navi a {
-    margin-top: 10px;
+@media (max-width: 400px) {
 }

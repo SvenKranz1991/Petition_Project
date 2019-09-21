@@ -1,27 +1,39 @@
 
 
-<div class="padding">
+<section class="registration-landing-section">
+    <div class="navigation">
+        <div class="navi">
 
-<img src="/a513a0245a5f0382c8a823cbd1017024f70442c0c1800400281cec8057a10c12.jpg" alt="Bug Picture">
+                <a href="{{delete}}"><h4>Delete Signature</h4></a>
+        <a href="{{editProfile}}"><h4>Edit Profile</h4></a>
+        <a href="{{logout}}"><h4>Logout</h4></a>
+        </div>
+    </div>
 
-<h1>The Petition was signed by {{NumberOfSigners}} (almost) Full Stack Developers.</h1>
-<h2>List of people who signed: </h2>
-{{#NamesEntries}}
+<div class="formaction">
+    <h1>This Petition was signed by {{NumberOfSigners}} Full Stack Developers.</h1>
+    <h2>List of people who signed: </h2>
+    <div class="nameEntries">
+        {{#NamesEntries}}
 
-<div class="listsigned">
-<p>
-{{#if homepage}}<a href="{{homepage}}" target="_blank">{{first}} {{last}}</a>{{/if}}{{#if age}}, {{age}},{{/if}} {{#if city}}<a href="/petition/signers/{{city}}">{{city}}</a>{{/if}}
-</p>
-</div>
+        <div class="listSigned">
+
+            <p>
+        {{#if homepage}}<a href="{{homepage}}" target="_blank">{{first}} {{last}}</a>{{/if}}
+        {{#if age}}, {{age}},{{/if}}
+        {{#if city}}<a href="/petition/signers/{{city}}">{{city}}</a>{{/if}}</p>
+        </div>
 
 
-{{/NamesEntries}}
-</div>
+        {{/NamesEntries}}
+        </div>
+    </div>
 
 
 
-<div class="navi">
-<a href="{{logout}}"><h4>Logout</h4></a>
-        <a href="{{delete}}"><h4>Delete Signature</h4></a>
-<a href="{{editProfile}}"><h4>EditProfile</h4></a>
-</div>
+
+
+
+
+
+</section>

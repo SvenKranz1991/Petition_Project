@@ -1,21 +1,29 @@
 
-<div class="padding">
-<h1>Thank you {{name}} for signing our petition!</h1>
-<img src="DMbJOcXWkAEVZRW.jpg_large" alt="Bug">
-<img class= "signatureshow" src="{{image}}">
+<section class="registration-landing-section">
+    <div class="navigation">
+        <div class="navi">
 
-{{#NamesEntries}}
+                <a href="{{delete}}"><h4>Delete Signature</h4></a>
+        <a href="{{editProfile}}"><h4>Edit Profile</h4></a>
+        <a href="{{logout}}"><h4>Logout</h4></a>
+        </div>
+    </div>
 
-<h1>The Petition was signed by {{count}} people.</h1>
+    <div class="formaction">
+        <h1>Thank you {{name}} for signing our petition!</h1>
+        <img class= "signatureshow" src="{{image}}">
 
-{{/NamesEntries}}
+        {{#NamesEntries}}
+
+        <h1>The Petition was signed by {{count}} people.</h1>
+
+        {{/NamesEntries}}
+
+        <a href="{{redirect}}" class="showSignatures"><h4>Show signatures</h4></a>
+    </div>
 
 
 
-<div class="navi">
-<a href="{{redirect}}"><h4>Show signatures</h4></a>
-        <a href="{{delete}}"><h4>Delete Signature</h4></a>
-<a href="{{editProfile}}"><h4>EditProfile</h4></a>
-<a href="{{logout}}"><h4>Logout</h4></a>
-</div>
-</div>
+
+
+</section>

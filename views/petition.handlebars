@@ -1,35 +1,52 @@
 
 
-<div class="padding">
-<div class="paragraphpetition">
-<h2>Sign!</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-</div>
-
-<img src="r_1290873_dKw89.jpg" alt="Bug Picture">
-
-
-<div class="warning {{#if warning}}on {{/if}}">
-    <p>There's something missing</p>
-</div>
-
-    <form method="POST">
-    <div id="SignatureFieldValue">
-            <input title="ValueCanv" type="hidden" name="input">
-            <input type="hidden" name="_csrf" value="{{csrfToken}}">
-        <canvas id="SignatureCanvas" width="600" height="100" style="border:1px solid #000000;"></canvas>
-
-
-        <h4>Your Signature</h4>
-
-        <button type="submit" name="submit_button">Submit</button>
-
+<section class="registration-landing-section">
+    <div class="navigation">
         <div class="navi">
-        <a href="{{delete}}"><h4>Delete Signature</h4></a>
-        <a href="{{editProfile}}"><h4>EditProfile</h4></a>
-        <a href="{{logout}}"><h4>Logout</h4></a>
+            <a href="{{delete}}"><h4>Delete Signature</h4></a>
+            <a href="{{editProfile}}"><h4>EditProfile</h4></a>
+            <a href="{{logout}}"><h4>Logout</h4></a>
+        </div>
     </div>
 
+    <div class="article-wrapper">
+        <div class="article-text">
+            <div class="calltoaction">
+                <h2>Sign below.</h2>
+            </div>
+
+            <p>By signing you agree that E-Scooter businesses like Lime, Tier, Circ and Voi are unnecessary.
+            You agree because there are alternatives like bicycles and we should focus, if we want to make a change in public transport section in cities, we need to show them that we really want it and not only another toy on the streets.</p>
+        </div>
+        <div class="a-image">
+            <img src="eroller4.png" alt="">
+        </div>
     </div>
-    </form>
+
+
+<div class="formaction">
+    <div class="signature-wrapper">
+        <form method="POST">
+        <div id="SignatureFieldValue">
+                <input title="ValueCanv" type="hidden" name="input">
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <canvas id="SignatureCanvas" style="border:1px solid #000000;"></canvas>
+
+
+            <h4>Your Signature</h4>
+
+            <div class="warning {{#if warning}}on {{/if}}">
+                <p>There's something missing</p>
+            </div>
+
+            <button type="submit" name="submit_button" class="submitButton">Submit</button>
+        </div>
+        </form>
+    </div>
 </div>
+
+
+
+
+
+</section>

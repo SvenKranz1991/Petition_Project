@@ -1,29 +1,72 @@
 
-<div class="padding">
 
-<h1>My Petition: ban all bugs from code.</h1>
+<section class="registration-landing-section">
 
-<img src="documentation-where-were-going-we-dont-need-documentation.jpg" alt="Bug Picture">
-<h2>Signup!</h2>
-<h4>Already registered?</h4>
-<a href="{{ToLogin}}">Login</a>
-
-<div class="warning {{#if warning}}on {{/if}}">
-    <p>There's something missing</p>
-</div>
-    <form method="POST">
-    <div id="SignatureFieldValue">
-            <input title= "First Name" type="text" name="first_name" placeholder="First Name">
-            <input title= "Last Name" type="text" name="last_name" placeholder="Last Name">
-            <input title= "Email" type="text" name="email" placeholder="Email">
-            <input title= "Password" type="password" name="password" placeholder="Password">
-            <input type="hidden" name="_csrf" value="{{csrfToken}}">
-
+    <div class="article-wrapper">
+        <div class="a-image">
+            <img src="eroller2.jpg" alt="">
+            <img src="eroller1_size=708x398.jpg" alt="">
+        </div>
+        <div class="article-text">
+            <h1>E-Bike Services are literally garbage.</h1>
+            <p>Services from the likes of Lime, Tier, Circ and Voi are creating a vast amount of electrical waste.
+                <br> <br>
+            <span class="bold">But not only that.</span>
             <br>
+                They are failing with one of their biggest promises:
             <br>
+            Being an alternative to public transport and using personal cars.<br><br>
 
-        <button type="submit" name="submit_button">Submit</button>
+            That's why join our cause of banning those services from the streets, so we can look for real alternatives instead of supporting some business that isn't sustainable.</p>
+
+
+
+
+
+
+            <div class="tologin">
+                <h2 class="calltoaction">Join our cause!</h2>
+                <h4>Already registered?</h4>
+                <a href="{{ToLogin}}">Login</a>
+            </div>
+        </div>
+
 
     </div>
-    </form>
-</div>
+
+
+
+
+
+    <div class="formaction">
+
+                        <h1>Signup!</h1>
+
+
+
+
+            <form method="POST">
+            <div id="SignatureFieldValue">
+                    <input title= "First Name" type="text" name="first_name" placeholder="First Name" class="inputfield">
+                    <input title= "Last Name" type="text" name="last_name" placeholder="Last Name" class="inputfield">
+                    <input title= "Email" type="text" name="email" placeholder="Email" class="inputfield">
+                    <input title= "Password" type="password" name="password" placeholder="Password" class="inputfield">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+                    <br>
+                    <div class="warning {{#if warning}}on {{/if}}">
+                        <p>There's something missing</p>
+                    </div>
+                    <br>
+
+                <button type="submit" name="submit_button" class="submitButton">Submit</button>
+
+            </div>
+            </form>
+
+
+
+    </div>
+
+    </div>
+</section>

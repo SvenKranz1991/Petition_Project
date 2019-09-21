@@ -1,23 +1,25 @@
 
-<div class="padding">
+<section class="registration-landing-section">
+    <div class="formaction">
 <h1>Give me your personal Info, {{name}} - its optional.</h1>
 
     <form method="POST">
     <div id="SignatureFieldValue">
 
             <h3>Age</h3>
-            <input title= "Age" type="text" name="age" placeholder="Age">
+            <input title= "Age" type="text" name="age" placeholder="Age" class="inputfield">
             <h3>City</h3>
-            <input title= "City" type="text" name="city" placeholder="City">
+            <input title= "City" type="text" name="city" placeholder="City" class="inputfield">
             <h3>Homepage</h3>
-            <input title= "Homepage" type="text" name="homepage" placeholder="Homepage">
+            <input title= "Homepage" type="text" name="homepage" placeholder="Homepage" class="inputfield">
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
 
             <br>
             <br>
-<a href="{{signed}}">
-        <button name="submit_button">Submit</button></a>
+        <a href="{{signed}}" class="getSigned">
+        <button name="submit_button" class="submitButton">I want to sign!</button></a>
 
     </div>
     </form>
 </div>
+</section>

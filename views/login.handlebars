@@ -1,28 +1,54 @@
 
-<div class="padding">
-<h1>Login</h1>
+<section class="registration-landing-section">
 
-<img src="atf1ietqwaxy.jpg" alt="Bug Picture" height="200" width="400">
 
-<h4>No logins?</h4>
-<a href="{{registration}}">Signup</a>
 
-<div class="warning {{#if warning}}on {{/if}}">
-    <p>There's something missing</p>
+
+
+
+<div class="article-wrapper">
+    <div class="article-text">
+        <h1>You are one of the good guys!</h1>
+        <p>You joined. You took action.
+        <span class="bold">Good Job.</span>
+        <br>
+        <br>
+        Login and see who else joined - renew your contact details - renew your petition signature.<br><br>
+
+        If you have any doubts - you could also delete your signature and delete your account. But you're cool. The Fact that you won't, despite having the option makes your company even more credible.</p>
+        <div class="tologin">
+            <h4>No logins?</h4>
+            <a href="{{registration}}">Signup</a>
+        </div>
+
+    </div>
+    <div class="a-image">
+        <img src="wp3055122.jpg" alt="">
+    </div>
 </div>
 
+
+
+<div class="formaction">
+    <h1>Login</h1>
     <form method="POST">
     <div id="SignatureFieldValue">
-            <input title= "Email" type="text" name="email" placeholder="Email">
-            <input title= "Password" type="text" name="password" placeholder="Password">
+            <input title= "Email" type="text" name="email" placeholder="Email" class="inputfield">
+            <input title= "Password" type="text" name="password" placeholder="Password" class="inputfield">
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
 
             <br>
+            <div class="warning {{#if warning}}on {{/if}}">
+                <p>There's something missing</p>
+            </div>
             <br>
 
-        <button type="submit" name="submit_button">Submit</button>
+        <button type="submit" name="submit_button" class="submitButton">Submit</button>
 
     </div>
     </form>
-
 </div>
+
+
+
+</section>
