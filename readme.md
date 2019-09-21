@@ -7,8 +7,6 @@ The Website was built with Handlebars.js and jQuery, Node.js and Express.js, Pos
 People can Signup or Login on my Website, create or change their Profiles and Sign the Petition on an Canvas Element.
 After signing they see a List of other Users who have signed and can filter the results by Location.
 
--   Item
-
 ### The Registration Process
 
 ![The Registration Process](gifreadme/Petition-640-Registration.gif)
