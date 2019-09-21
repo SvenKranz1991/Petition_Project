@@ -215,7 +215,8 @@ app.get("/petition/signers", notWithoutSignature, (req, res) => {
                     editProfile: "/editProfile",
                     name: req.session.nameId,
                     homepage: profiles.rows,
-                    delete: "/deleteSignature"
+                    delete: "/deleteSignature",
+                    showButton: false
                 });
             })
             .catch(err => {
@@ -240,7 +241,8 @@ app.get("/petition/signers/:city", notWithoutSignature, (req, res) => {
                     name: req.session.nameId,
                     homepage: profiles.rows,
                     delete: "/deleteSignature",
-                    reqCity: req.params.city
+                    reqCity: req.params.city,
+                    showButton: true
                 });
             })
             .catch(err => {
