@@ -110,7 +110,6 @@ a {
 .showSignatures {
     width: 170px;
     text-decoration: none;
-    text-decoration: none;
     border: 1px solid white;
     font-size: 0.7rem;
 }
@@ -292,16 +291,14 @@ h1 {
     font-weight: 400;
 }
 
-canvas {
-    background-color: white;
-    color: black;
-    width: 600px;
-    height: 300px;
-}
-
 .warning {
     visibility: hidden;
 }
+
+canvas {
+    background-color: white;
+}
+
 .on {
     visibility: visible;
 }

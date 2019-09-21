@@ -2,8 +2,6 @@ var sigField = document.getElementById("SignatureCanvas");
 const ctx = sigField.getContext("2d");
 const input = document.getElementsByName("input")[0];
 
-const field = sigField.getBoundingClientRect();
-
 var x = 0;
 var y = 0;
 
@@ -15,6 +13,7 @@ sigField.addEventListener("mousemove", drawing);
 sigField.addEventListener("mouseleave", stopSign);
 
 function startSigning(e) {
+    const field = sigField.getBoundingClientRect();
     x = e.clientX - field.left;
     y = e.clientY - field.top;
     painting = true;
@@ -39,6 +38,7 @@ function draw(ctx, xS, yS, xE, yE) {
 }
 
 function drawing(e) {
+    const field = sigField.getBoundingClientRect();
     if (painting == true) {
         draw(ctx, x, y, e.clientX - field.left, e.clientY - field.top);
         x = e.clientX - field.left;
@@ -50,3 +50,5 @@ function stopSign() {
     ctx.closePath();
     painting = false;
 }
+
+// /////

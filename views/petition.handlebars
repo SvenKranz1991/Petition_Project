@@ -24,13 +24,12 @@
     </div>
 
 
-<div class="formaction">
-
+    <div class="formaction">
         <form method="POST">
         <div id="SignatureFieldValue">
-                <input title="ValueCanv" type="hidden" name="input">
+                <input id="ValueCanv"title="ValueCanv" type="hidden" name="input">
                 <input type="hidden" name="_csrf" value="{{csrfToken}}">
-            <canvas id="SignatureCanvas" style="border:1px solid #000000;"></canvas>
+            <canvas id="SignatureCanvas" width="500" height="150" style="border:1px solid #000000;"></canvas>
 
 
             <h4>Your Signature</h4>
@@ -42,8 +41,11 @@
             <button type="submit" name="submit_button" class="submitButton">Submit</button>
         </div>
         </form>
+    </div>
 
-</div>
+
+
+
 
 
 
