@@ -7,11 +7,15 @@ The Website was built with Handlebars.js and jQuery, Node.js and Express.js, Pos
 People can Signup or Login on my Website, create or change their Profiles and Sign the Petition on an Canvas Element.
 After signing they see a List of other Users who have signed and can filter the results by Location.
 
-#### The Data I was interested in from the "Audio Features" - Endpoint that Spotify provided
-
 -   Item
 
-![The Login Process and Overview of Landing Page]()
+### The Registration Process
+
+![The Registration Process]()
+
+### The Login and Signing Process
+
+![The Login and Signing Process]()
 
 ## Getting Started
 
@@ -24,7 +28,7 @@ Feel free to sign my Petition and leave a Signature.
 
 ### Frontend
 
--   Handlebars
+-   Handlebars.js
 -   CSS3
 
 ### Backend
@@ -36,15 +40,23 @@ Feel free to sign my Petition and leave a Signature.
 
 ## Features
 
-![Create Playlist - Process](readmegifs/Gif_1_640px_CreatePlaylist.gif)
-
-### Displaying Audio Features from every Track from the created Playlist
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+-   Registration Process
+    -   Users can register in order to sign the Petition
+    -   Users can create a Profile (Age, City, Homepage)
+    -   Data is stored in a SQL Database
+-   Login Process
+    -   User can login with their credentials
+    -   After login users will be redirected to their Signature
+    -   Users can update their Profile, delete their Signature and Account or see the List of other Users who Signed
+-   Signing
+    -   the Petition is signed by making a Signature(or rather drawing) on a Canvas Element
+-   List of other Users is displayed and can be filtered by cities
 
 ## Features to be added
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+-   Responsive Design
+-   more accurate behaviour of Canvas Element
+-   Animations
 
 ## Authors
 
